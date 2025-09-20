@@ -1,0 +1,137 @@
+<div class="skills-page" [class.animate-in]="isVisible">
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <div class="container">
+      <h1 class="slide-up">Skills & Technologies</h1>
+      <p class="slide-up delay-1">A showcase of innovative applications demonstrating expertise in creating impactful, user-centric digital experiences with 7+ years of professional experience.</p>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="slide-up delay-2">Core Technologies</h2>
+      
+      <div class="skills-grid">
+        <div 
+          class="skill-card float-up" 
+          *ngFor="let skill of skills; let i = index"
+          [style.animation-delay]="(i * 0.1) + 's'"
+        >
+          <div class="skill-header">
+            <div class="skill-icon">
+              <i [class]="skill.icon"></i>
+            </div>
+            <div class="skill-info">
+              <h3>{{ skill.name }}</h3>
+              <span class="experience">{{ skill.experience }}</span>
+            </div>
+          </div>
+          
+          <p class="skill-description">{{ skill.description }}</p>
+          
+          <div class="skill-bar-container">
+            <div class="skill-bar">
+              <div class="skill-progress" [attr.data-level]="skill.level"></div>
+            </div>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="container">
+      <h2 class="slide-up">Key Projects</h2>
+      <p class="section-subtitle slide-up delay-1">Real-world applications showcasing technical expertise from Robert Bosch and other leading organizations</p>
+      
+      <div class="projects-grid">
+        <div 
+          class="project-card float-up" 
+          *ngFor="let project of projects; let i = index"
+          [style.animation-delay]="(i * 0.15 + 0.5) + 's'"
+        >
+          <div class="project-icon">
+            <i [class]="project.icon"></i>
+          </div>
+          <h4>{{ project.title }}</h4>
+          <p class="project-description">{{ project.description }}</p>
+          
+          <div class="project-impact">
+            <i class="fas fa-chart-line"></i>
+            <strong>Impact:</strong> {{ project.impact }}
+          </div>
+          
+          <div class="project-tech">
+            <i class="fas fa-code"></i>
+            <strong>Technologies:</strong> {{ project.technologies }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domain Expertise -->
+  <section class="domains-section">
+    <div class="container">
+      <h2 class="slide-up">Domain Expertise</h2>
+      <p class="slide-up delay-1">My portfolio spans various domains, showcasing versatility and deep technical expertise in different industry verticals.</p>
+      
+      <div class="domains-grid">
+        <div class="domain-card float-up" style="animation-delay: 0.2s;">
+          <div class="domain-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Smart Dashboards</h4>
+          <p>Energy monitoring and optimization</p>
+        </div>
+        
+        <div class="domain-card float-up" style="animation-delay: 0.4s;">
+          <div class="domain-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h4>Execution Systems</h4>
+          <p>Industrial automation</p>
+        </div>
+        
+        <div class="domain-card float-up" style="animation-delay: 0.6s;">
+          <div class="domain-icon">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h4>Connected Devices</h4>
+          <p>IoT and smart parking systems</p>
+        </div>
+        
+        <div class="domain-card float-up" style="animation-delay: 0.8s;">
+          <div class="domain-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h4>Next-Gen Applications</h4>
+          <p>Modern industrial applications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="slide-up">Let's Collaborate</h2>
+        <p class="slide-up delay-1">Ready to leverage these skills for your next project? I bring technical expertise and passion for delivering exceptional results.</p>
+        <div class="cta-buttons fade-in delay-2">
+          <a routerLink="/contact" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i>
+            Start a Project
+          </a>
+          <a routerLink="/experience" class="btn btn-secondary">
+            <i class="fas fa-briefcase"></i>
+            View Experience
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

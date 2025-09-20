@@ -1,0 +1,97 @@
+<footer class="footer">
+  <div class="container">
+    <!-- Main Footer Content -->
+    <div class="footer-content">
+      <!-- About Section -->
+      <div class="footer-section about-section">
+        <h3 class="footer-title">Shainy V Poojari</h3>
+        <p class="footer-description">
+          Senior Frontend Engineer with 7+ years of experience specializing in Angular, React, and TypeScript.
+          Building innovative solutions for energy management, IoT, and enterprise applications.
+        </p>
+        <div class="footer-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Bangalore, India</span>
+        </div>
+        <div class="footer-availability">
+          <div class="availability-indicator"></div>
+          <span>Available for new opportunities</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section links-section">
+        <h4 class="section-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.route" class="footer-link">
+              <i class="fas fa-chevron-right"></i>
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section services-section">
+        <h4 class="section-title">Services</h4>
+        <ul class="services-list">
+          <li *ngFor="let service of services" class="service-item">
+            <i class="fas fa-check"></i>
+            {{ service }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="footer-section contact-section">
+        <h4 class="section-title">Let's Connect</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:shainy.poojari@email.com">shainy.poojari@email.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Response within 24 hours</span>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a 
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            [title]="social.name"
+            [style.--social-color]="social.color"
+          >
+            <i [class]="social.icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <p>&copy; {{ getCurrentYear() }} Shainy V Poojari. All rights reserved.</p>
+        </div>
+        <div class="footer-tech">
+          <p class="tech-note">
+            <i class="fab fa-angular"></i>
+            Built with Angular & TypeScript
+          </p>
+        </div>
+        <div class="footer-status">
+          <p class="status-note">
+            <i class="fas fa-heart"></i>
+            Made with passion in Bangalore
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

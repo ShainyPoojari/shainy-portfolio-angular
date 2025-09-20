@@ -1,0 +1,65 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="container">
+    <div class="navbar-content">
+      <!-- Logo -->
+      <div class="navbar-brand">
+        <a routerLink="/" class="brand-link">
+          <span class="brand-text">Shainy V Poojari</span>
+          <span class="brand-subtitle">Senior Frontend Engineer</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <ul class="navbar-nav desktop-nav">
+        <li class="nav-item" *ngFor="let item of navItems">
+          <a 
+            class="nav-link" 
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: item.route === '/'}"
+          >
+            <i [class]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        class="mobile-menu-btn"
+        (click)="toggleMobileMenu()"
+        [class.active]="isMobileMenuOpen"
+        aria-label="Toggle mobile menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item" *ngFor="let item of navItems">
+          <a 
+            class="mobile-nav-link"
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: item.route === '/'}"
+            (click)="closeMobileMenu()"
+          >
+            <i [class]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div 
+  class="mobile-overlay" 
+  [class.active]="isMobileMenuOpen"
+  (click)="closeMobileMenu()"
+></div>

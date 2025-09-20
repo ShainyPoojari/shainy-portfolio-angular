@@ -1,0 +1,189 @@
+<div class="about-page">
+  <!-- Hero Section -->
+  <section class="about-hero section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text" data-aos="fade-right">
+          <h1 class="page-title">About Me</h1>
+          <h2 class="hero-subtitle">{{ personalInfo.name }}</h2>
+          <p class="hero-description">
+            I'm a passionate Senior Frontend Engineer with over 7 years of experience in crafting exceptional web applications. 
+            My journey in technology has been driven by a love for creating solutions that make a real difference.
+          </p>
+          <p class="hero-description">
+            From building complex energy management systems to innovative IoT solutions, my career has been a continuous 
+            journey of learning and creating impact across diverse industries including automotive, manufacturing, and real estate.
+          </p>
+          
+          <div class="personal-stats">
+            <div class="stat-grid">
+              <div class="stat-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <span class="stat-label">Location</span>
+                  <span class="stat-value">{{ personalInfo.location }}</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                  <span class="stat-label">Experience</span>
+                  <span class="stat-value">{{ personalInfo.experience }}</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                  <span class="stat-label">Status</span>
+                  <span class="stat-value">{{ personalInfo.availability }}</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <span class="stat-label">Response Time</span>
+                  <span class="stat-value">{{ personalInfo.responseTime }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual" data-aos="fade-left">
+          <div class="profile-card">
+            <div class="profile-image">
+              <div class="image-placeholder">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+            <div class="profile-info">
+              <h3>{{ personalInfo.name }}</h3>
+              <p>{{ personalInfo.title }}</p>
+              <div class="profile-badges">
+                <span class="badge">Angular Expert</span>
+                <span class="badge">React Developer</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">IoT Solutions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Journey -->
+  <section class="career-section section bg-gray-50">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>My Journey</h2>
+        <p>A continuous evolution through different phases of my career, each building upon the last</p>
+      </div>
+      
+      <div class="timeline">
+        <div 
+          class="timeline-item"
+          *ngFor="let phase of careerJourney; let i = index"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 200"
+        >
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-period">{{ phase.period }}</span>
+              <h3 class="timeline-title">{{ phase.title }}</h3>
+            </div>
+            <p class="timeline-description">{{ phase.description }}</p>
+            <div class="timeline-skills">
+              <span 
+                class="skill-tag"
+                *ngFor="let skill of phase.skills"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+          <div class="timeline-marker"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Core Competencies</h2>
+        <p>A comprehensive toolkit of modern technologies that enable me to build robust, scalable applications</p>
+      </div>
+      
+      <div class="skills-grid">
+        <div 
+          class="skill-item"
+          *ngFor="let skill of skills; let i = index"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+        >
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div 
+              class="skill-progress" 
+              [style.width.%]="skill.level"
+              [attr.data-percentage]="skill.level"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="achievements-section section bg-gray-50">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Achievements & Recognition</h2>
+        <p>My commitment to excellence has been recognized through various achievements and accolades</p>
+      </div>
+      
+      <div class="achievements-grid">
+        <div 
+          class="achievement-card card"
+          *ngFor="let achievement of achievements; let i = index"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 150"
+        >
+          <div class="achievement-icon">
+            <i [class]="achievement.icon"></i>
+          </div>
+          <h3 class="achievement-title">{{ achievement.title }}</h3>
+          <p class="achievement-description">{{ achievement.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section bg-gradient">
+    <div class="container">
+      <div class="cta-content text-center" data-aos="fade-up">
+        <h2 class="cta-title">Let's Build Something Amazing Together</h2>
+        <p class="cta-description">
+          Ready to discuss your next project? I'm always excited to work on challenging problems 
+          and create innovative solutions that make a difference.
+        </p>
+        <div class="cta-actions">
+          <a routerLink="/contact" class="btn btn-accent">
+            <i class="fas fa-paper-plane"></i>
+            Get In Touch
+          </a>
+          <a href="mailto:shainy.poojari@email.com" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i>
+            Email Directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

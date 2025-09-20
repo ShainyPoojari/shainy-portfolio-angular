@@ -1,0 +1,156 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text" data-aos="fade-up">
+          <div class="hero-greeting">
+            <span class="greeting-text">Hello, I'm</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="name">Shainy V Poojari</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            Senior Frontend Engineer
+          </h2>
+          <p class="hero-description">
+            Crafting high-performance web applications and interactive dashboards that drive business growth 
+            and enhance user experiences. With 7+ years of expertise in Angular, React, and TypeScript, 
+            I specialize in creating robust solutions that combine cutting-edge technology with exceptional user experiences.
+          </p>
+          
+          <div class="hero-stats">
+            <div 
+              class="stat-item" 
+              *ngFor="let stat of heroStats; let i = index"
+              [attr.data-aos]="'fade-up'"
+              [attr.data-aos-delay]="i * 100"
+            >
+              <i [class]="stat.icon"></i>
+              <div class="stat-content">
+                <span class="stat-number">{{ stat.number }}</span>
+                <span class="stat-label">{{ stat.label }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
+            <button class="btn btn-primary" (click)="navigateToContact()">
+              <i class="fas fa-envelope"></i>
+              Get In Touch
+            </button>
+            <button class="btn btn-secondary" (click)="navigateToProjects()">
+              <i class="fas fa-briefcase"></i>
+              View Projects
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+          <div class="visual-container">
+            <div class="code-window">
+              <div class="window-header">
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+                <span class="window-title">portfolio.component.ts</span>
+              </div>
+              <div class="code-content">
+                <div class="code-line">
+                  <span class="keyword">export class</span> 
+                  <span class="class-name">ShainyPortfolio</span> 
+                  <span class="punctuation">{{ '{' }}</span>
+                </div>
+                <div class="code-line indent">
+                  <span class="property">experience</span><span class="punctuation">:</span> 
+                  <span class="string">'7+ years'</span><span class="punctuation">;</span>
+                </div>
+                <div class="code-line indent">
+                  <span class="property">skills</span><span class="punctuation">:</span> 
+                  <span class="punctuation">[</span><span class="string">'Angular'</span><span class="punctuation">,</span> 
+                  <span class="string">'React'</span><span class="punctuation">,</span> 
+                  <span class="string">'TypeScript'</span><span class="punctuation">];</span>
+                </div>
+                <div class="code-line indent">
+                  <span class="property">location</span><span class="punctuation">:</span> 
+                  <span class="string">'Bangalore, India'</span><span class="punctuation">;</span>
+                </div>
+                <div class="code-line">
+                  <span class="punctuation">{{ '}' }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="floating-elements">
+              <div class="floating-element tech-angular">Angular</div>
+              <div class="floating-element tech-react">React</div>
+              <div class="floating-element tech-typescript">TypeScript</div>
+              <div class="floating-element tech-javascript">JavaScript</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section section bg-gray-50">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>What I Do</h2>
+        <p>
+          Specialized in creating innovative solutions across various domains, 
+          from energy management systems to IoT applications
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div 
+          class="service-card card"
+          *ngFor="let service of services; let i = index"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 150"
+        >
+          <div class="service-icon">
+            <i [class]="service.icon"></i>
+          </div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          <div class="service-technologies">
+            <span 
+              class="tech-tag" 
+              *ngFor="let tech of service.technologies"
+            >
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section bg-gradient">
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <h2 class="cta-title">Ready to Start Your Next Project?</h2>
+        <p class="cta-description">
+          Let's collaborate and bring your ideas to life. I'm available for new opportunities 
+          and exciting challenges in frontend development.
+        </p>
+        <div class="cta-actions">
+          <button class="btn btn-accent" (click)="navigateToContact()">
+            <i class="fas fa-paper-plane"></i>
+            Start a Conversation
+          </button>
+          <button class="btn btn-secondary" (click)="downloadResume()">
+            <i class="fas fa-download"></i>
+            Download Resume
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

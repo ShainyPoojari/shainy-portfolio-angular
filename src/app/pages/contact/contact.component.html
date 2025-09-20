@@ -1,0 +1,311 @@
+<div class="contact-page">
+  <!-- Hero Section -->
+  <section class="contact-hero section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="hero-description">
+          Ready to discuss your next project or explore collaboration opportunities? 
+          I'd love to hear from you and learn about your vision.
+        </p>
+        <p class="hero-subtitle">
+          Whether you're looking for a frontend developer for your team, need consultation on a project, 
+          or want to discuss potential collaborations, I'm always open to new opportunities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info -->
+  <section class="contact-content section bg-gray-50">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-section" data-aos="fade-right">
+          <div class="form-card card">
+            <h2>Send Me a Message</h2>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  formControlName="name"
+                  class="form-input"
+                  [class.error]="isFieldInvalid('name')"
+                  placeholder="Enter your full name"
+                >
+                <div class="error-message" *ngIf="isFieldInvalid('name')">
+                  <i class="fas fa-exclamation-circle"></i>
+                  {{ getFieldError('name') }}
+                </div>
+              </div>
+
+              <!-- Email Field -->
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-input"
+                  [class.error]="isFieldInvalid('email')"
+                  placeholder="Enter your email address"
+                >
+                <div class="error-message" *ngIf="isFieldInvalid('email')">
+                  <i class="fas fa-exclamation-circle"></i>
+                  {{ getFieldError('email') }}
+                </div>
+              </div>
+
+              <!-- Subject Field -->
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject *</label>
+                <input
+                  type="text"
+                  id="subject"
+                  formControlName="subject"
+                  class="form-input"
+                  [class.error]="isFieldInvalid('subject')"
+                  placeholder="What's this about?"
+                >
+                <div class="error-message" *ngIf="isFieldInvalid('subject')">
+                  <i class="fas fa-exclamation-circle"></i>
+                  {{ getFieldError('subject') }}
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="form-group">
+                <label for="message" class="form-label">Message *</label>
+                <textarea
+                  id="message"
+                  formControlName="message"
+                  class="form-textarea"
+                  [class.error]="isFieldInvalid('message')"
+                  placeholder="Tell me about your project or inquiry..."
+                  rows="6"
+                ></textarea>
+                <div class="error-message" *ngIf="isFieldInvalid('message')">
+                  <i class="fas fa-exclamation-circle"></i>
+                  {{ getFieldError('message') }}
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary submit-btn"
+                [disabled]="isSubmitting"
+                [class.loading]="isSubmitting"
+              >
+                <span *ngIf="!isSubmitting">
+                  <i class="fas fa-paper-plane"></i>
+                  Send Message
+                </span>
+                <span *ngIf="isSubmitting">
+                  <i class="fas fa-spinner fa-spin"></i>
+                  Sending...
+                </span>
+              </button>
+
+              <!-- Success/Error Message -->
+              <div 
+                class="form-message"
+                *ngIf="submitMessage"
+                [class.success]="submitSuccess"
+                [class.error]="!submitSuccess"
+              >
+                <i [class]="submitSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'"></i>
+                {{ submitMessage }}
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info-section" data-aos="fade-left">
+          <div class="info-card card">
+            <h2>Contact Information</h2>
+            
+            <div class="contact-items">
+              <div 
+                class="contact-item"
+                *ngFor="let info of contactInfo"
+              >
+                <div class="contact-icon">
+                  <i [class]="info.icon"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>{{ info.title }}</h4>
+                  <p class="contact-value">{{ info.value }}</p>
+                  <p class="contact-description">{{ info.description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="availability-notice">
+              <div class="availability-status">
+                <div class="status-indicator"></div>
+                <span>Available for new opportunities</span>
+              </div>
+              <p>I'm currently open to new opportunities and freelance projects. Typical response time is within 24 hours.</p>
+            </div>
+
+            <!-- Direct Contact Options -->
+            <div class="direct-contact">
+              <h4>Quick Contact</h4>
+              <div class="contact-buttons">
+                <a href="mailto:shainy.poojari@email.com" class="contact-btn email-btn">
+                  <i class="fas fa-envelope"></i>
+                  Email Me
+                </a>
+                <a href="https://linkedin.com/in/shainy-poojari" target="_blank" class="contact-btn linkedin-btn">
+                  <i class="fab fa-linkedin"></i>
+                  LinkedIn
+                </a>
+                <a href="tel:+919876543210" class="contact-btn phone-btn">
+                  <i class="fas fa-phone"></i>
+                  Call Me
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="test-section" style="margin: 20px auto; max-width: 600px; padding: 15px; background: #f0f9ff; border-radius: 8px; text-align: center;">
+    <h4 style="color: #0369a1;">🧪 Email Test (Remove after setup)</h4>
+    <button 
+      type="button" 
+      class="btn btn-secondary" 
+      (click)="testEmailSetup()"
+      style="background: #0369a1; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+      Test Email Configuration
+    </button>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions about working with me</p>
+      </div>
+      
+      <div class="faq-list">
+        <div 
+          class="faq-item"
+          *ngFor="let faq of faqs; let i = index"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+        >
+          <button 
+            class="faq-question"
+            (click)="toggleFaq(i)"
+            [class.active]="faq.expanded"
+          >
+            <span>{{ faq.question }}</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer" [class.expanded]="faq.expanded">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="services-section section bg-gray-50">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>How I Can Help</h2>
+        <p>Services I offer to help bring your projects to life</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Frontend Development</h3>
+          <p>Building modern, responsive web applications using Angular, React, and TypeScript with focus on performance and user experience.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Angular & React Applications</li>
+            <li><i class="fas fa-check"></i> TypeScript Development</li>
+            <li><i class="fas fa-check"></i> Responsive Design</li>
+            <li><i class="fas fa-check"></i> Performance Optimization</li>
+          </ul>
+        </div>
+
+        <div class="service-card card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Dashboard Development</h3>
+          <p>Creating interactive dashboards and data visualization platforms for energy management, IoT, and business analytics.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Real-time Data Visualization</li>
+            <li><i class="fas fa-check"></i> Interactive Charts & Graphs</li>
+            <li><i class="fas fa-check"></i> IoT Data Integration</li>
+            <li><i class="fas fa-check"></i> Business Intelligence Tools</li>
+          </ul>
+        </div>
+
+        <div class="service-card card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Technical Consulting</h3>
+          <p>Providing expert consultation on frontend architecture, code reviews, performance optimization, and technical strategy.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Architecture Reviews</li>
+            <li><i class="fas fa-check"></i> Code Audits</li>
+            <li><i class="fas fa-check"></i> Performance Analysis</li>
+            <li><i class="fas fa-check"></i> Technology Strategy</li>
+          </ul>
+        </div>
+
+        <div class="service-card card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Team Leadership</h3>
+          <p>Leading development teams, mentoring junior developers, and driving technical excellence in enterprise projects.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Team Management</li>
+            <li><i class="fas fa-check"></i> Developer Mentoring</li>
+            <li><i class="fas fa-check"></i> Project Planning</li>
+            <li><i class="fas fa-check"></i> Quality Assurance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section bg-gradient">
+    <div class="container">
+      <div class="cta-content text-center" data-aos="fade-up">
+        <h2 class="cta-title">Let's Create Something Amazing</h2>
+        <p class="cta-description">
+          Ready to transform your ideas into reality? Let's start the conversation today and build something impactful together.
+        </p>
+        <div class="cta-actions">
+          <a href="mailto:shainy.poojari@email.com" class="btn btn-accent">
+            <i class="fas fa-envelope"></i>
+            Email Me Directly
+          </a>
+          <a routerLink="/about" class="btn btn-secondary">
+            <i class="fas fa-user"></i>
+            Learn More About Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
