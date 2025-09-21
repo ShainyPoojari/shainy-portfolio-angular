@@ -99,14 +99,15 @@ export class ContactComponent implements OnInit {
       console.log('📧 Submitting contact form with data:', formData);
       
       // ✅ Use the exact working EmailJS format
-      const response = await emailjs.send("gmd1226", "template_h3rsqnn", {
-        from_name: formData.name,
-        subject: formData.subject,
-        from_email: formData.email,
-        reply_to: formData.email,
-        email: formData.email,
-        message: formData.message
-      });
+    const response = await emailjs.send("gmd1226", "template_h3rsqnn", {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      reply_to: formData.email,
+      to_email: "shainyvpoojari@gmail.com",
+      to_name: "Shainy V Poojari"
+    });
 
       console.log('✅ Contact form submitted successfully:', response);
       

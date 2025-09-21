@@ -39,17 +39,18 @@ export class ContactService {
 
   async sendEmail(formData: ContactFormData): Promise<EmailResponse> {
     try {
-      // ✅ FIXED - Use the EXACT format that works in EmailJS
+      // ✅ FIXED - Proper template parameters
       const templateParams = {
-        from_name: formData.name,          // ✅ Matches your working format
-        subject: formData.subject,         // ✅ Matches your working format
-        from_email: formData.email,        // ✅ Matches your working format
-        reply_to: formData.email,          // ✅ Matches your working format
-        email: formData.email,             // ✅ Added this parameter from your working example
-        message: formData.message          // ✅ Added message parameter
+        from_name: formData.name,        // Visitor's name
+        from_email: formData.email,      // Visitor's email
+        subject: formData.subject,       // Message subject
+        message: formData.message,       // Message content
+        reply_to: formData.email,        // Reply-to address
+        to_email: 'shainyvpoojari@gmail.com',  // ✅ YOUR email (where messages go)
+        to_name: 'Shainy V Poojari'     // ✅ Your name
       };
 
-      console.log('📧 Sending email with exact working format:', templateParams);
+      console.log('📧 Sending email with fixed template params:', templateParams);
       console.log('📧 Service ID:', this.EMAIL_SERVICE_ID);
       console.log('📧 Template ID:', this.EMAIL_TEMPLATE_ID);
 
@@ -82,7 +83,7 @@ export class ContactService {
     return {
       name: 'Shainy V Poojari',
       title: 'Senior Frontend Engineer',
-      email: 'shainyvpoojari@gmail>com',
+      email: 'shainyvpoojari@gmail.com',  // ✅ FIXED typo
       location: 'Bangalore, India',
       responseTime: 'Within 24 hours'
     };
