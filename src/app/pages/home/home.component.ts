@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToProjects(): void {
-    this.router.navigate(['/projects']);
+    this.router.navigate(['/experience']);
   }
 
   downloadResume(): void {
