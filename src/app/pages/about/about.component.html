@@ -1,6 +1,6 @@
 <div class="about-page">
   <!-- Hero Section -->
-  <section class="about-hero section">
+  <!-- <section class="about-hero section">
     <div class="container">
       <div class="hero-content">
         <div class="hero-text" data-aos="fade-right">
@@ -53,7 +53,7 @@
           <div class="profile-card">
             <div class="profile-image">
               <div class="image-placeholder">
-                <i class="fas fa-user"></i>
+             
               </div>
             </div>
             <div class="profile-info">
@@ -70,7 +70,72 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+<!-- Hero Section -->
+<section class="about-hero section">
+  <div class="container">
+    <div class="hero-content">
+      <!-- Large Profile Image -->
+      <div class="hero-image" data-aos="fade-right">
+        <div class="profile-image-large"></div>
+      </div>
+      
+      <!-- Information Side -->
+      <div class="hero-info" data-aos="fade-left">
+        <h1 class="page-title">About Me</h1>
+        <h2 class="hero-subtitle">{{ personalInfo.name }}</h2>
+        <p class="hero-role">{{ personalInfo.title }}</p>
+        
+        <p class="hero-description">
+          I'm a passionate Senior Frontend Engineer with over 7 years of experience in crafting exceptional web applications. 
+          My journey in technology has been driven by a love for creating solutions that make a real difference.
+        </p>
+        <p class="hero-description">
+          From building complex energy management systems to innovative IoT solutions, my career has been a continuous 
+          journey of learning and creating impact across diverse industries including automotive, manufacturing, and real estate.
+        </p>
+        
+        <div class="personal-stats">
+          <div class="stat-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span class="stat-label">Location</span>
+              <span class="stat-value">{{ personalInfo.location }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-calendar-alt"></i>
+            <div>
+              <span class="stat-label">Experience</span>
+              <span class="stat-value">{{ personalInfo.experience }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-briefcase"></i>
+            <div>
+              <span class="stat-label">Status</span>
+              <span class="stat-value">{{ personalInfo.availability }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span class="stat-label">Email</span>
+              <span class="stat-value">{{ personalInfo.responseTime }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-badges">
+          <span class="badge">Angular Expert</span>
+          <span class="badge">React Developer</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">IoT Solutions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Career Journey -->
   <section class="career-section section bg-gray-50">
